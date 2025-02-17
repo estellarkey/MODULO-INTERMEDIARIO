@@ -1,0 +1,137 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décimo programa</title>
+
+    <style>     
+
+        * {
+           padding: 0%;
+           margin: 0%;
+           /* O box-sizing com o valor border-box faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura */
+           /* resumidamente ele facilita um cálculo do tamanhos dos elementos  */
+           box-sizing: border-box; 
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        main{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* A propriedade display com o valor grid é o ponto de partida para criar um grid container. Ela transforma um elemento HTML em um contêiner de grade, 
+            onde você pode organizar os elementos filhos em linhas e colunas */
+            display: grid;
+            /*O place-items define a posição de cada item em relação ao contêiner, e o center define que os itens vão ser posicionados ao centro*/
+            place-items: center;
+            overflow: hidden;
+
+        }
+
+
+        main > form{
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: center;  
+            flex-wrap: wrap;
+            /* é uma propriedade utilizada para definir o espaçamento entre os elementos de um grid ou flexbox */
+            gap: 16px;
+            background-color: rgba(10, 0, 39, 0.425);
+            padding: 60px;
+            border-radius: 30px;
+        }
+
+        input::placeholder{
+            color: white;
+            font-size: 20px;
+            padding: 5%;
+        }
+
+        main > form > input{
+            width: 100%;
+            padding: 16ox;
+            font-size: 35px;
+            color: white;
+            background-color: rgba(10, 0, 54, 0.377);
+            border-style: none;
+            border-radius: 10px
+        }
+
+        main > form > button {
+            cursor: pointer;
+            padding: 16px;
+            font-size: 16px;
+            border-style: none;
+            color: white;
+            background-color: rgba(8, 0, 56, 0.377);
+            border-radius: 20px;
+        }
+
+
+        main > form > h2 {
+            position: absolute;
+            cursor: pointer;
+            padding: 16px;
+            font-size: 25px;
+            border-style: none;
+            color: white;
+            top: 65%;
+
+        }
+
+        main > .img {
+            width: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            height: 100%;
+            background-image: url(../Imagens/imagem-de-fundo.jpg);
+            z-index: -1;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: animation 15s infinite;
+        }
+
+        @keyframes animation{
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            40%,
+            60% {
+                transform: scale(1.1);
+            }
+        }
+
+    </style>
+ </head>
+ <body>
+
+    <main>
+        <div class="img"></div>
+            <form>
+                <h1 style="color: white; padding: 10px;">Calculadora de soma:</h1>
+                <input id="meunamber1" type="number"  placeholder="digite um número" value="">
+                <input id="meunamber2" type="number"  placeholder="digite outro número" value="">
+                <button type="button" onclick="minhaFuncao()">clique aqui</button>
+                 <br>
+                    <h2 id="meuId"></h2>
+            </form>
+    </main>
+        
+    <script>
+        function minhaFuncao(){
+            var x = Number(document.getElementById("meunamber1").value);
+            var y = Number(document.getElementById("meunamber2").value);
+            
+            var resultado = x + y;
+
+            document.getElementById("meuId").innerHTML = x + "+" + y + "=" + resultado;
+        }
+    </script>
+ </body>
+ </html>
